@@ -4,5 +4,3 @@ dist
 .vscode
 *.lock
 .DS_Store
-
-/public
