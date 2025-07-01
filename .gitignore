@@ -1,0 +1,9 @@
+node_modules
+dist
+.cache
+.vscode
+*.lock
+.DS_Store
+
+/public
+/src
