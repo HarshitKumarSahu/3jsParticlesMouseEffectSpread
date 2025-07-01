@@ -24,6 +24,7 @@ class Sketch {
         antialias: true,
         });
         this.renderer.setPixelRatio(window.devicePixelRatio);
+        // alert(window.devicePixelRatio)
         this.renderer.setSize(this.width, this.height);
         this.renderer.setClearColor("#111", 1);
         this.renderer.physicallyCorrectLights = true;
@@ -34,17 +35,27 @@ class Sketch {
         this.camera = new THREE.PerspectiveCamera(
             70,
             this.width / this.height,
-            0.001,
+            100,
             1000
         );
         this.camera.position.set(0, 0, 300);
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
         this.time = 0;
         this.isPlaying = true;
         
         this.raycaster = new THREE.Raycaster()
 
+        this.addModel();
+        this.addObjects();
+        this.resize();
+        this.render();
+        this.mouse()
+        this.setupResize();
+        this.settings();
+    }
+
+    addModel() {
         this.loader = new GLTFLoader();
         this.dracoLoader = new DRACOLoader();
         this.dracoLoader.setDecoderPath('./draco/');
@@ -71,14 +82,6 @@ class Sketch {
                 console.log(e);
             }
         );
-
-
-        this.addObjects();
-        this.resize();
-        this.render();
-        this.mouse()
-        this.setupResize();
-        this.settings();
     }
 
     addObjects() {
@@ -98,7 +101,8 @@ class Sketch {
         });
 
         this.geometry = new THREE.PlaneGeometry(200, 410);
-        this.plain = new THREE.Mesh(this.geometry, new THREE.MeshBasicMaterial({color: "red", wireframe: true, visible: true}));
+        this.plainMaterial = new THREE.MeshBasicMaterial({color: "red", wireframe: true, visible: true});
+        this.plain = new THREE.Mesh(this.geometry, this.plainMaterial);
         this.scene.add(this.plain);
     }
 
@@ -170,3 +174,4 @@ class Sketch {
 new Sketch({
   dom: document.querySelector(".canvas"),
 });
+
