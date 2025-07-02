@@ -2,6 +2,7 @@ uniform float time;
 uniform vec3 mousePos;
 uniform float isMouseOver;
 uniform float progress;
+varying vec3 vPosition;
 
 vec4 mod289(vec4 x) {
   return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -129,9 +130,10 @@ float hash(float n) {
 // void main() {
 
 
-
+//org
 void main() {
     // Generate random initial position
+    vPosition = position;
     vec3 randomPos;
     randomPos.x = (hash(position.x + position.y + position.z) - 0.5) * 1000.0;
     randomPos.y = (hash(position.y + position.z + 1.234) - 0.5) * 1000.0;
@@ -165,12 +167,9 @@ void main() {
     }
 
     vec4 mvPosition = modelViewMatrix * vec4(newPos, 1.0);
-    gl_PointSize = 700.0 * (1.0 / -mvPosition.z);
+    gl_PointSize = 800.0 * (1.0 / -mvPosition.z);
     gl_Position = projectionMatrix * mvPosition;
 }
-
-
-
 
 
 
