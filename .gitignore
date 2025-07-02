@@ -5,4 +5,4 @@ dist
 *.lock
 .DS_Store
 
-/src/testing
+/src/testing/

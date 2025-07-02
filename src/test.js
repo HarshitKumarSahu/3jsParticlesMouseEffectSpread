@@ -2,8 +2,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-import fragment from "../../shaders/fragment.glsl";
-import vertex from "../../shaders/vertexParticle.glsl";
+import fragment from "../shaders/fragment.glsl";
+import vertex from "../shaders/vertexParticle.glsl";
 
 import * as dat from "dat.gui";
 import gsap from "gsap";
@@ -33,13 +33,24 @@ class Sketch {
         this.container.appendChild(this.renderer.domElement);
 
         this.camera = new THREE.PerspectiveCamera(
-            70,
+            45, // Reduced FOV for a more natural view (e.g., 45° instead of 70°)
             this.width / this.height,
-            100,
-            // 1,
-            1000
+            0.1, // Closer near plane for better depth precision
+            1000 // Far plane (unchanged)
         );
-        this.camera.position.set(0, -5, 330);
+        this.camera.position.set(0, 0, 520); // Adjusted to eye level, slight zoom out
+        this.camera.lookAt(0, 0, 0); // Point at the origin
+
+
+        // this.camera = new THREE.PerspectiveCamera(
+        //     70,
+        //     this.width / this.height,
+        //     100,
+        //     //1,
+        //     1000
+        // );
+        // this.camera.position.set(0, -5, 330);
+        // this.camera.lookAt(0, 0, 0);
         // this.camera.position.set(0, 0, 17);
 
         this.time = 0;
