@@ -4,3 +4,5 @@ dist
 .vscode
 *.lock
 .DS_Store
+
+/src/testing
