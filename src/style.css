@@ -1,10 +1,10 @@
 @font-face {
     font-family: alpha;
-    src: url(../public/font/JetBrainsMono-Bold.woff2);
+    src: url(/font/JetBrainsMono-Bold.woff2);
 } 
 @font-face {
     font-family: og;
-    src: url(../public/font/og.otf);
+    src: url(/font/og.otf);
 }
 
 * {
