@@ -127,10 +127,6 @@ float hash(float n) {
     return fract(sin(n) * 43758.5453123);
 }
 
-// void main() {
-
-
-//org
 void main() {
     // Generate random initial position
     vPosition = position;
@@ -156,9 +152,9 @@ void main() {
         float distToMouse = length(newPos - mousePos);
         if (distToMouse < distance) {
             vec3 noisePos;
-            noisePos.x = 250.0 * snoise(vec4(newPos.x, newPos.y, newPos.z, time / 3.75));
+            noisePos.x = 300.0 * snoise(vec4(newPos.x, newPos.y, newPos.z, time / 3.75));
             noisePos.y = newPos.y + 10.0 * snoise(vec4(newPos.x, newPos.y, newPos.z, time / 3.75));
-            noisePos.z = 250.0 * snoise(vec4(newPos.x * 0.5, newPos.y * 0.5, newPos.z * 0.5, time / 3.75));
+            noisePos.z = 300.0 * snoise(vec4(newPos.x * 0.5, newPos.y * 0.5, newPos.z * 0.5, time / 3.75));
             
             float koef = distToMouse / distance;
             koef = sqrt(koef);
@@ -170,64 +166,3 @@ void main() {
     gl_PointSize = 1450.0 * (1.0 / -mvPosition.z);
     gl_Position = projectionMatrix * mvPosition;
 }
-
-
-
-
-
-//     float distance = 100.;
-
-//     vec3 newPos = position;
-
-//     if(isMouseOver > 0.5) {
-//         vec3 noisePos;
-
-//         noisePos.x = 250. * snoise(vec4(position.x, position.y, position.z, time / 3.75));
-//         noisePos.y = newPos.y + 10. * snoise(vec4(position.x, position.y, position.z, time / 3.75));
-//         noisePos.z = 250. * snoise(vec4(position.x * 0.5, position.y * 0.5, position.z * 0.5, time / 3.75));
-
-//         if(length(position - mousePos) < distance) {
-//             float koef = length(position - mousePos) / distance;
-//             koef = sqrt(koef);
-//             // newPos *= vec3(1. + koef, 1., 2. + koef);
-//             newPos = mix(newPos, noisePos, 1. - koef);
-//         }
-//     }
-
-//     vec4 mvPosition = modelViewMatrix * vec4(newPos, 1.0);
-//     gl_PointSize = 700. * ( 1. / - mvPosition.z);
-//     gl_Position = projectionMatrix * mvPosition;
-// }
-
-// void main() {
-//     // Generate random initial position (spread across a large volume)
-//     vec3 randomPos;
-//     randomPos.x = (hash(position.x + position.y + position.z) - 0.5) * 1000.0; // Spread in x
-//     randomPos.y = (hash(position.y + position.z + 1.234) - 0.5) * 1000.0; // Spread in y
-//     randomPos.z = (hash(position.z + position.x + 2.345) - 0.5) * 1000.0; // Spread in z
-    
-//     randomPos += 100.0 * snoise(vec4(randomPos.x, randomPos.y , randomPos.z , time / 3.75));
-
-//     // Interpolate between random position and model position based on progress
-//     vec3 newPos = mix(randomPos, position, progress);
-
-//     // Apply mouse distortion only when isMouseOver is active
-//     if (isMouseOver > 0.5) {
-//         float distance = 100.0;
-//         float distToMouse = length(newPos - mousePos);
-//         if (distToMouse < distance) {
-//             vec3 noisePos;
-//             noisePos.x = 250.0 * snoise(vec4(newPos.x, newPos.y, newPos.z, time / 3.75));
-//             noisePos.y = newPos.y + 10.0 * snoise(vec4(newPos.x, newPos.y, newPos.z, time / 3.75));
-//             noisePos.z = 250.0 * snoise(vec4(newPos.x * 0.5, newPos.y * 0.5, newPos.z * 0.5, time / 3.75));
-            
-//             float koef = distToMouse / distance;
-//             koef = sqrt(koef);
-//             newPos = mix(newPos, noisePos, 1.0 - koef);
-//         }
-//     }
-
-//     vec4 mvPosition = modelViewMatrix * vec4(newPos, 1.0);
-//     gl_PointSize = 700.0 * (1.0 / -mvPosition.z);
-//     gl_Position = projectionMatrix * mvPosition;
-// }
