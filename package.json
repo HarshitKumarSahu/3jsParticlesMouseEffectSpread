@@ -9,10 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^6.2.0"
+    "vite": "^7.0.1"
   },
   "dependencies": {
     "gsap": "^3.12.7",
+    "rollup": "^4.44.1",
     "three": "^0.175.0",
     "vite-plugin-glsl": "^1.3.3"
   }
