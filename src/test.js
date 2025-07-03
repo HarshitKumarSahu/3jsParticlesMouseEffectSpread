@@ -130,9 +130,36 @@ class Sketch {
         this.scene.add(this.plain);
     }
 
+    landingAnimation(domElem) {
+        let domElemVar = domElem.textContent;
+        let domElemHeight = domElem.offsetHeight;
+        // alert(domElemHeight)
+        let splittedText = domElemVar.split("");
+        let clutter = "";  
+        splittedText.forEach(function(element, index) {
+            clutter += `<span class="element">${element}</span>`;
+        });
+        domElem.innerHTML = clutter
+
+        
+
+        gsap.to(".element", {
+            y: domElemHeight,
+            // opacity: 0,
+            duration: 1,
+            stagger: 0.14285,
+            ease: "expoScale(0.5,7,none)", 
+            // ease: "",
+        })
+   
+    }
+
+
     setupButton() {
         this.stickButton = document.querySelector('#stickButton');
         this.audio = document.getElementById('effectAudio');
+        let p = document.querySelector("#heading p")
+        p.style.transform = `translateY(-${p.offsetHeight}px)`;
         let that = this;
         this.stickButton.addEventListener('click', () => {
             gsap.to(this.material.uniforms.progress, {
@@ -143,8 +170,10 @@ class Sketch {
                 //     this.audio.currentTime = 0; // Rewind to start
                 //     this.audio.play();
                 //     console.log("Audio played");
+                    
                 // }
             });
+            this.landingAnimation(p)
             this.ifClicked = true
         });
     }
