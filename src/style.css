@@ -128,6 +128,33 @@ p span {
     border-right: 2px solid #FFB496;
 }
 
+.light {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 1px;
+}
+#last {
+    left: 70%;
+    box-shadow:         
+        0 0 15vw 15vw rgba(0, 255, 255, 0.10),
+        0 0 30vw 22.5vw rgba(0, 255, 255, 0.05);
+}
+#mid {
+    left: 50%;
+    box-shadow:         
+        0 0 100px 90px rgba(255,180, 150, 0.3),
+        0 0 200px 180px rgba(255,180, 150, 0.2),
+        0 0 300px 270px rgba(255,180, 150, 0.1);
+}
+#first {
+    left: 30%;
+    box-shadow:         
+        0 0 15vw 15vw rgba(0, 255, 255, 0.10),
+        0 0 30vw 22.5vw rgba(0, 255, 255, 0.05);
+}
+
 @media (max-width: 576px) {
     #stickButton {
         font-size: 5vw;
@@ -143,5 +170,15 @@ p span {
     }
     #cornor4 {
         right: 20%;
+    }
+    #first {
+        box-shadow:         
+            0 0 30vw 30vw rgba(0, 255, 255, 0.10),
+            0 0 60vw 45vw rgba(0, 255, 255, 0.05);
+    }
+    #last {
+        box-shadow:         
+            0 0 30vw 30vw rgba(0, 255, 255, 0.10),
+            0 0 60vw 45vw rgba(0, 255, 255, 0.05);
     }
 }

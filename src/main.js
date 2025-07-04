@@ -197,8 +197,7 @@ class Sketch {
                 onComplete: () => {
                     this.stickButton.style.display = "none"
                 }
-            })
-            
+            })            
             gsap.to(this.material.uniforms.progress, {
                 value: 1.0,
                 duration: 2,
