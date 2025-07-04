@@ -3,7 +3,7 @@
 Welcome to the **3D Particle Effect with Mouse Interaction** project! This is a creative web-based visualization built using Three.js, featuring a dynamic particle system derived from a 3D model (e.g., Beyoncé), interactive mouse effects, and smooth animations powered by GSAP. The project showcases a blend of WebGL shaders, 3D rendering, and modern JavaScript techniques.
 
 ## Preview
-./public/preview.png
+/preview.png
 
 ## Demo
 https://3js-particles-mouse-effect-spread.vercel.app/
@@ -65,7 +65,7 @@ https://3js-particles-mouse-effect-spread.vercel.app/
 - Styles: Modify CSS in index.html to alter the cursor, button, or text appearance.
 
 **License**
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it as per the terms.
+- This project is licensed under the MIT License. Feel free to use, modify, and distribute it as per the terms.
 
 **Acknowledgments**
 - Inspired by Three.js examples and GSAP tutorials.
